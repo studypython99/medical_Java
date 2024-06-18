@@ -7,14 +7,14 @@ public class C0617_16 {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		
-		// 구구단 홀수단 출력
-		for (int i=2; i<10; i++) {
-			if (i%2 != 0)
-			for (int j=1; j<10; j++) {	 
-				System.out.printf("%dx%d=%d",i,j,i*j);
-				System.out.println();
+		// 구구단 세로 출력
+		for (int j=1; j<10; j++) {	 
+			for (int i=2; i<10; i++) {
+//				System.out.printf("[%d단] \n",i);
+					System.out.printf("%dx%d=%d \t",i,j,i*j);
 				
 			}
+			System.out.println("\n");
 		}
 			
 		

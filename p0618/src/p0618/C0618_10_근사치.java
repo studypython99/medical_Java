@@ -3,7 +3,7 @@ package p0618;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class C0618_10 {
+public class C0618_10_근사치 {
 
 	public static void main(String[] args) {
 		// 1~100까지 랜덤숫자를 생성, 랜덤숫자 맞추기

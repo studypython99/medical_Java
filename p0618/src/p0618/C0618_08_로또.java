@@ -18,12 +18,12 @@ public class C0618_08_로또 {
 //		System.out.println(Arrays.toString(ball));
 		
 		// 3. 랜덤으로 섞기
-		int no = 0;
-		int t_value = 0;
+		int no = 0; // ball의 임의자리 선택
+		int t_value = 0; // 빈공간 마련, ball[0]의 임시공간 및 ball[no]로 전달
 		for(int i=0;i<100;i++) {
-			no = (int)(Math.random()*45);
+			no = (int)(Math.random()*45); //0~44까지 랜덤숫자
 //			System.out.println(no);
-			t_value = ball[0];
+			t_value = ball[0]; 
 			ball[0] = ball[no];
 			ball[no] = t_value;
 			}//for random shuffle
@@ -37,8 +37,8 @@ public class C0618_08_로또 {
 		// 4. 나의 로또번호 6개
 		Scanner scan = new Scanner(System.in);
 		int[] myArry = new int[6];
-		int num = 0;
-		int n = 0;
+		int num = 0; // 로또번호
+		int n = 0; // 6개 채우기
 		while(n<6) {
 			System.out.println("나의 로또번호 >>");
 			for(int i=0;i<myArry.length;i++) {
@@ -60,7 +60,7 @@ public class C0618_08_로또 {
 		int count = 0;
 		for(int i=0;i<6;i++) {
 			for(int j=0;j<6;j++) {
-				if(myArry[i]==ball[j]) {
+				if(myArry[i]==ball[j]) {// 숫자 비교해보기
 					dang[count] = myArry[i]; // dang의 0번위치부터 입력한다.
 					count++;
 				}//if myArry==ball

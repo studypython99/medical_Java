@@ -2,7 +2,7 @@ package p0618;
 
 import java.util.Scanner;
 
-public class C0618_11 {
+public class C0618_11_국영수 {
 
 	public static void main(String[] args) {
 		

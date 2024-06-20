@@ -185,9 +185,6 @@ public class C0619_08_학생성적
 				System.out.println("프로그램을 종료합니다!!");
 				break Loop1;
 			}//switch
-		}//while
-		
-		
-		
+		}//while		
 	}//main
 }//class

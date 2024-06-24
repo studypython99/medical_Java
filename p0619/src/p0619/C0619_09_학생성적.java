@@ -2,7 +2,7 @@ package p0619;
 
 import java.util.Scanner;
 
-public class C0619_09 {
+public class C0619_09_학생성적 {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		//학생성적 입력구현

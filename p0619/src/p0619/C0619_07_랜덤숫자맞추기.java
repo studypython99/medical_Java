@@ -2,7 +2,7 @@ package p0619;
 
 import javax.swing.JOptionPane;
 
-public class C0619_07 {
+public class C0619_07_랜덤숫자맞추기 {
 	public static void main(String[] args) {
 		int num = (int)(Math.random()*100)+1;
 		int input = 0; // 입력받을 값

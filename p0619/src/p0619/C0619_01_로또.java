@@ -1,6 +1,6 @@
 package p0619;
 
-public class C0619_01 {
+public class C0619_01_로또 {
 	public static void main(String[] args) {
 		//로또 프로그램 구현
 		//1~45 배열에서 랜덤으로 섞고, 0~5(6개)가져오면 로또번호

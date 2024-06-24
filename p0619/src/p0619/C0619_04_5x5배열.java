@@ -3,7 +3,7 @@ package p0619;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class C0619_04 {
+public class C0619_04_5x5배열 {
 
 	public static void main(String[] args) {
 		// 퀴즈

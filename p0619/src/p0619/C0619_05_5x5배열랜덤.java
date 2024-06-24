@@ -1,6 +1,6 @@
 package p0619;
 
-public class C0619_05 {
+public class C0619_05_5x5배열랜덤 {
 	public static void main(String[] args) {
 		//[5,5]배열을 생성, 1~25 숫자 입력, 랜덤섞고 출력
 		int[][] arr = new int[5][5];

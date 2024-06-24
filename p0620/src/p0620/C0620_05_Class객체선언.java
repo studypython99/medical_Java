@@ -1,6 +1,6 @@
 package p0620;
 
-public class C0620_05 {
+public class C0620_05_Class객체선언 {
 
 	public static void main(String[] args) {
 		String stuNo = "s0001";

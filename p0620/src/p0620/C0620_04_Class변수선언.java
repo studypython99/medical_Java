@@ -2,7 +2,7 @@ package p0620;
 
 import java.util.Scanner;
 
-public class C0620_04 {
+public class C0620_04_Class변수선언 {
 
 	public static void main(String[] args) {
 		//변수선언

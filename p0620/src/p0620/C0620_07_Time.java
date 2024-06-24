@@ -1,6 +1,6 @@
 package p0620;
 
-public class C0620_07 {
+public class C0620_07_Time {
 
 	public static void main(String[] args) {
 		int hour = 10;

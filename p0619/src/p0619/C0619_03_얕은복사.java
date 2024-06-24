@@ -1,6 +1,6 @@
 package p0619;
 
-public class C0619_03 {
+public class C0619_03_얕은복사 {
 
 	public static void main(String[] args) {
 		

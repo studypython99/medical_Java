@@ -1,6 +1,8 @@
-package p0621;
+package p0624;
 
-public class C0621_14 {
+
+
+public class C0624_12 {
 
 	public static void main(String[] args) {
 		//변수선언부분
@@ -28,3 +30,4 @@ public class C0621_14 {
 		}//while	
 	}//main
 }//class
+

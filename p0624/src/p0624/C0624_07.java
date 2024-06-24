@@ -7,6 +7,7 @@ public class C0624_07 {
 		int[] result = new int[4];
 		
 		//Elenemt의 메소드 활용
+		//참조형 매개변수 리턴x(read & write)
 		//a,b의 사칙연산 결과값 출력
 		//cal(a,b);
 		//더하기 15

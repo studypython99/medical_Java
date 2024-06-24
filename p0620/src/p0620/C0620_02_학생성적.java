@@ -20,8 +20,7 @@ public class C0620_02_학생성적 {
 		int s_count = 0; //입력된 학생수
 		
 		//전체화면 출력
-		while(true) 
-		{
+		while(true) {
 			//화면부분
 			System.out.println("[ 학생성적 프로그램 ]");
 			System.out.println("---------------------");
@@ -36,12 +35,10 @@ public class C0620_02_학생성적 {
 			int choice = scan.nextInt();
 			scan.nextLine(); //enter키 때문
 			
-			switch(choice) 
-			{
+			switch(choice) {
 			case 1:
-				while(true) 
-				{
-					System.out.println("1. 성적입력");
+				while(true) {
+					System.out.println("[ 학생 성적입력 ]");
 //					"학번","이름","국어","영어","수학","합계","평균","등수"
 					Date date = new Date();
 					SimpleDateFormat sdf = new SimpleDateFormat("yy");
@@ -71,7 +68,6 @@ public class C0620_02_학생성적 {
 					score[s_count][3] = score[s_count][0]+score[s_count][1]+score[s_count][2];
 					// 평균 저장
 					avg[s_count] = score[s_count][3]/3.0;
-					
 					// 입력완료
 					System.out.printf("%s 학생성적이 저장되었습니다.\n",name[s_count]);
 					System.out.println();
@@ -81,19 +77,16 @@ public class C0620_02_학생성적 {
 				break;
 				
 			case 2:
-				System.out.println("2. 성적출력");
-				for(int i=0;i<title.length;i++) 
-				{
+				System.out.println("[ 학생 성적출력 ]");
+				for(int i=0;i<title.length;i++) {
 					System.out.printf("%s\t",title[i]);
 				}
 				System.out.println();
 				System.out.println("---------------------------------------------");
-				for(int i=0;i<s_count;i++) 
-				{
+				for(int i=0;i<s_count;i++) {
 					System.out.printf("%s\t",stuNo[i]); //학번
 					System.out.printf("%s\t",name[i]);  //이름
-					for(int j=0;j<4;j++) 
-					{
+					for(int j=0;j<4;j++) {
 						System.out.printf("%d\t",score[i][j]); //국어,영어,수학,합계
 					}
 					System.out.printf("%.2f\t",avg[i]); //평균
@@ -102,177 +95,218 @@ public class C0620_02_학생성적 {
 				}
 				System.out.println();
 				break;
+				
 			case 3:
-				System.out.println("3. 성적수정");
-				//학생검색
-				System.out.println("학생이름을 입력하세요 >>");
-				String t_name = scan.nextLine();
-				int cnt = -1;
-				//제목줄 //찾은 학생의 데이터 출력
-				for(int i=0;i<title.length;i++) 
-				{
-					System.out.printf("%s\t",title[i]);
-				}
-				System.out.println();
-				System.out.println("---------------------------------------------");
-				for(int i=0;i<s_count;i++)
-				{
-					if(name[i].equals(t_name))// equals: 같은이름
-					{
-						System.out.printf("%s\t",stuNo[i]); //학번
-						System.out.printf("%s\t",name[i]);  //이름
-						for(int j=0;j<4;j++) 
-						{
-							System.out.printf("%d\t",score[i][j]); //국어,영어,수학,합계
-						}
-						System.out.printf("%.2f\t",avg[i]); //평균
-						System.out.printf("%d\t", rank[i]);  //등수
+				System.out.println("[ 학생검색 ]");	
+				System.out.println("수정하고자 하는 학생이름을 입력하세요.>>");
+				String search = scan.nextLine();
+				//검색
+				int temp_no = -1; //찾는 학생이 검색된 위치값
+				for(int i=0;i<s_count;i++) {
+					if(name[i].equals(search)) {
+						temp_no = i; //찾는 학생이 검색된 위치값
+						System.out.printf("%s 학생이 검색되었습니다.!! \n",search);
 						System.out.println();
-						cnt = 1;
-						
+						break;
 					}
-				}
-				if(cnt==0)
-				{
-					System.out.println("찾는 학생이 없습니다. 다시 입력하세요");
-					System.out.println();
-				}//찾은 학생의 데이터 출력
-				loop1: while(true)
-				{
-				//데이터 수정하기
-				System.out.println("수정할 과목을 선택하세요(0.취소)>>");
-				System.out.println("1. 국어");
-				System.out.println("2. 영어");
-				System.out.println("3. 수학");
-				int cchoice = scan.nextInt();
-					switch(cchoice)
-					{
-					case 1:
-						System.out.println("1. 국어");
-						score[cnt][cchoice-1] = scan.nextInt(); // cnt를 홍길동의 위치로 변경하기
-						break;
-					case 2:
-						System.out.println("2. 영어");
-						score[cnt][cchoice-1] = scan.nextInt();
-						break;
-					case 3:
-						System.out.println("3. 수학");
-						score[cnt][cchoice-1] = scan.nextInt();												
-						break;
-					case 0:
-						break loop1;
-					}
-					// 합계 저장
-					score[cnt][cchoice-1] = score[cnt][0]+score[cnt][1]+score[cnt][2];
-					// 평균 저장
-					avg[cnt] = score[cnt][3]/3.0;
 				}
 				
+				// 찾은 학생 성적수정
+				if(temp_no==-1) { //찾는 학생이 없을 경우
+					System.out.println("찾는 학생이 없습니다. 다시 입력하세요.!! ");
+					System.out.println();
+				}else {
+					// 학생검색 후 진행
+					System.out.printf("          [ %s 성적수정 ] \n",search);
+					System.out.println("---------------------------------");
+					System.out.println("1.국어점수 수정");
+					System.out.println("2.영어점수 수정");
+					System.out.println("3.수학점수 수정");
+					System.out.println("-----------------------");
+					System.out.println("원하는 번호를 입력하세요.>> ");
+					choice = scan.nextInt();
+					
+					switch(choice) {
+					case 1: //국어점수 변경 - title : 학번-0 이름-1 국어-2 영어-3 수학-4
+						System.out.printf("[ %s점수 수정 ] \n",title[choice+1]);
+						//국어점수 - score[temp_no][0]
+						System.out.printf("현재 %s점수 : %d \n",title[choice+1],score[temp_no][choice-1]);
+						System.out.println("----------------------------------");
+						System.out.printf("변경 %s점수를 입력하세요.>> \n",title[choice+1]);
+						score[temp_no][choice-1] = scan.nextInt();
+						
+						//합계,평균변경
+						// 합계 = 국어점수 + 영어점수 + 수학점수
+						score[temp_no][3] = score[temp_no][0]+score[temp_no][1]+score[temp_no][2];
+						// 평균 = 합계/3.0
+						avg[temp_no] = score[temp_no][3]/3.0;
+						// 국어점수 : score[temp_no][0]
+						System.out.printf("변경된 %s점수 : %d \n",title[choice+1],score[temp_no][choice-1]);
+						System.out.println();
+						break;
+					case 2: //영어점수 변경
+						System.out.printf("[ %s점수 수정 ] \n",title[choice+1]);
+						System.out.printf("현재 %s점수 : %d \n",title[choice+1],score[temp_no][choice-1]);
+						System.out.println("----------------------------------");
+						System.out.printf("변경 %s점수를 입력하세요.>> \n",title[choice+1]);
+						//영어점수 - score[temp_no][1]
+						score[temp_no][choice-1] = scan.nextInt();
+						
+						//합계,평균변경
+						score[temp_no][3] = score[temp_no][0]+score[temp_no][1]+score[temp_no][2];
+						avg[temp_no] = score[temp_no][3]/3.0;
+						System.out.printf("변경된 %s점수 : %d \n",title[choice+1],score[temp_no][choice-1]);
+						System.out.println();
+						break;
+					case 3: //수학점수 변경
+						System.out.printf("[ %s점수 수정 ] \n",title[choice+1]);
+						System.out.printf("현재 %s점수 : %d \n",title[choice+1],score[temp_no][choice-1]);
+						System.out.println("----------------------------------");
+						System.out.printf("변경 %s점수를 입력하세요.>> \n",title[choice+1]);
+						score[temp_no][choice-1] = scan.nextInt();
+						
+						//합계,평균변경
+						score[temp_no][3] = score[temp_no][0]+score[temp_no][1]+score[temp_no][2];
+						avg[temp_no] = score[temp_no][3]/3.0;
+						System.out.printf("변경된 %s점수 : %d \n",title[choice+1],score[temp_no][choice-1]);
+						System.out.println();
+						break;
+					}
+				}//if
 				
 				break;
+				
 			case 4:
-				System.out.println("4. 학생검색");
-				System.out.println("---------------------------------------------");				
-				System.out.println("-1- 학생이름 검색");
-				System.out.println("-2- 합계점수 검색");
-				System.out.println("---------------------------------------------");
-				System.out.println("원하는 번호를 입력하세요 >>");
+				System.out.println("[ 학생검색 ]");
+				System.out.println("----------------------------");
+				System.out.println("1. 합계점수 검색");
+				System.out.println("2. 평균점수 검색");
+				System.out.println("3. 학생이름 검색");
+				System.out.println("----------------------------");
+				System.out.println("원하는 번호를 입력하세요.>> ");
 				choice = scan.nextInt();
 				scan.nextLine();
-				int ccnt = 0; //학생을 찾았는지 확인하는 변수
-				switch(choice)
-				{
-				case 1:
-					//같은 사람이 있는지
-					System.out.println("합계점수를 입력하세요 >>");
-					int t_score = scan.nextInt(); //이름,합계,평균
-					//제목줄
-					for(int i=0;i<title.length;i++) 
-					{
+				int cnt = 0; //학생을 찾았는지 확인 변수
+				switch(choice) {
+				
+				case 1: //합계점수 검색
+					System.out.println("합계점수를 입력하세요.>>");
+					int t_score = scan.nextInt();
+					for(int i=0;i<title.length;i++) {
 						System.out.printf("%s\t",title[i]);
 					}
 					System.out.println();
 					System.out.println("---------------------------------------------");
-					for(int i=0;i<s_count;i++)
-					{
-//					if(name[i].equals(t_name))// equals: 같은이름
-						if(score[i][3] >= t_score)// 이름,합계,평균
-						{
+					cnt = 0; //학생을 찾았는지 확인 변수
+					for(int i=0;i<s_count;i++) {
+//						if(name[i].equals(t_name)) {
+						if(score[i][3] >= t_score) {
 							System.out.printf("%s\t",stuNo[i]); //학번
 							System.out.printf("%s\t",name[i]);  //이름
-							for(int j=0;j<4;j++) 
-							{
-								System.out.printf("%d\t",score[i][j]); //국어,영어,수학,합계
-							}
-							System.out.printf("%.2f\t",avg[i]); //평균
-							System.out.printf("%d\t", rank[i]);  //등수
-							System.out.println();
-							ccnt = 1;
-							
-						}
-					}
-					if(ccnt==0)
-					{
-						System.out.println("찾는 학생이 없습니다. 다시 입력하세요");
-						System.out.println();
-					}
-					break;
-				case 2:
-					//같은 사람이 있는지
-					System.out.println("학생이름을 입력하세요 >>");
-					String tt_name = scan.nextLine();
-					//제목줄
-					for(int i=0;i<title.length;i++) 
-					{
-						System.out.printf("%s\t",title[i]);
-					}
-					System.out.println();
-					System.out.println("---------------------------------------------");
-					for(int i=0;i<s_count;i++)
-					{
-//					if(name[i].equals(t_name))// equals: 같은이름
-						if(name[i].contains(tt_name))// contains: 담겨져있으면
-						{
-							System.out.printf("%s\t",stuNo[i]); //학번
-							System.out.printf("%s\t",name[i]);  //이름
-							for(int j=0;j<4;j++) 
-							{
+							for(int j=0;j<4;j++) {
 								System.out.printf("%d\t",score[i][j]); //국어,영어,수학,합계
 							}
 							System.out.printf("%.2f\t",avg[i]); //평균
 							System.out.printf("%d\t", rank[i]);  //등수
 							System.out.println();
 							cnt = 1;
-							
 						}
 					}
-					if(ccnt==0)
-					{
-						System.out.println("찾는 학생이 없습니다. 다시 입력하세요");
+					System.out.println();
+					
+					if(cnt==0) {
+						System.out.println("찾는 학생이 없습니다. 다시 입력하세요.!!");
+						System.out.println();
+					}
+					
+					break;
+				case 2: //평균점수 검색
+					System.out.println("평균점수를 입력하세요.>>");
+				    double t_avg = scan.nextDouble();
+					for(int i=0;i<title.length;i++) {
+						System.out.printf("%s\t",title[i]);
+					}
+					System.out.println();
+					System.out.println("---------------------------------------------");
+					cnt = 0; //학생을 찾았는지 확인 변수
+					for(int i=0;i<s_count;i++) {
+//						if(name[i].equals(t_name)) {
+						if(avg[i] >= t_avg) {
+							System.out.printf("%s\t",stuNo[i]); //학번
+							System.out.printf("%s\t",name[i]);  //이름
+							for(int j=0;j<4;j++) {
+								System.out.printf("%d\t",score[i][j]); //국어,영어,수학,합계
+							}
+							System.out.printf("%.2f\t",avg[i]); //평균
+							System.out.printf("%d\t", rank[i]);  //등수
+							System.out.println();
+							cnt = 1;
+						}
+					}
+					System.out.println();
+					
+					if(cnt==0) {
+						System.out.println("찾는 학생이 없습니다. 다시 입력하세요.!!");
+						System.out.println();
+					}
+					
+					break;
+					
+					
+					
+					
+				case 3: //학생이름 검색
+					System.out.println("학생이름을 입력하세요.>>");
+					String t_name = scan.nextLine();
+					
+					for(int i=0;i<title.length;i++) {
+						System.out.printf("%s\t",title[i]);
+					}
+					System.out.println();
+					System.out.println("---------------------------------------------");
+					cnt = 0; //학생을 찾았는지 확인 변수
+					for(int i=0;i<s_count;i++) {
+//						if(name[i].equals(t_name)) {
+						if(name[i].contains(t_name)) {
+							System.out.printf("%s\t",stuNo[i]); //학번
+							System.out.printf("%s\t",name[i]);  //이름
+							for(int j=0;j<4;j++) {
+								System.out.printf("%d\t",score[i][j]); //국어,영어,수학,합계
+							}
+							System.out.printf("%.2f\t",avg[i]); //평균
+							System.out.printf("%d\t", rank[i]);  //등수
+							System.out.println();
+							cnt = 1;
+						}
+					}
+					System.out.println();
+					
+					if(cnt==0) {
+						System.out.println("찾는 학생이 없습니다. 다시 입력하세요.!!");
 						System.out.println();
 					}
 					break;
 				}
-				
 				break;
+				
 			case 5:
-				System.out.println("5. 등수처리");
-				for (int i=0;i<s_count;i++)
-				{
-					int count = 1; // 위치확인하기
-					for (int j=0;j<s_count;j++)
-					{
-						if(score[i][3]<score[j][3])
-						{
-							count++;
-						}
-					}
+				System.out.println("[ 등수처리 ]");
+				for(int i=0;i<s_count;i++) {
+					int count = 1; //초기화
+					for(int j=0;j<s_count;j++) 
+						if(score[i][3]<score[j][3]) count++;
 					rank[i] = count;
 				}
-				System.out.println("등수처리 완료");
+				
+				System.out.println("등수처리가 완료되었습니다.!!");
+				System.out.println();
+				break;
+				
 			}//switch
 			
 			
 		}//while
+
 	}//main
+
 }//class
